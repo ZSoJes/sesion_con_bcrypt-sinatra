@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+include BCrypt
   # Remember to create a migration!
   validates :name, :email, :password, presence: true
   validates :email, uniqueness: true
@@ -11,7 +12,22 @@ class User < ActiveRecord::Base
     end
   end
 
-  def self.authenticate(email, password)
-    User.find_by(email: email, password: password)
+  def self.authenticate(email, user_password)
+    user = User.find_by(email: email)
+    if user && (user.password == user_password)
+      return user
+    else
+      nil
+    end
   end
+
+  def password
+    @password ||= Password.new(password_digest)
+  end
+
+  def password=(user_password)
+    @password = Password.create(user_password)
+    self.password_digest = @password
+  end
+
 end

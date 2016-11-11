@@ -24,7 +24,12 @@ post '/create' do
   es_vacio = User.vacio?(@name, @email, @password)
 
   unless es_vacio
-    User.create(name: @name, email: @email, password: @password)
+    # User.create(name: @name, email: @email, password_digest: @password)
+    @user = User.new()
+    @user.name = params[:name]
+    @user.email = params[:email]
+    @user.password = params[:password]
+    @user.save!
     erb :index
   else 
     redirect to '/new_user?error=true'
@@ -38,7 +43,10 @@ end
 
 post '/update' do
   user = User.find(session[:user_id])
-  user.update(name: params[:name],email: params[:email],password: params[:password])
+  user.name = params[:name]
+  user.email = params[:email]
+  user.password = params[:password]
+  user.save!
   redirect to '/begin_session/:id'
 end
 
@@ -89,4 +97,8 @@ end
 get '/end_session' do
   session[:user_id] = nil
   redirect to '/'
+end
+
+get '/return' do
+  redirect to "/begin_session/#{session[:user_id]}"
 end
