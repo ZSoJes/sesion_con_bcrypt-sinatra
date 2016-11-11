@@ -1,0 +1,50 @@
+.container {
+  margin: 20px auto;
+  width: 600px;
+  padding: 0px 20px 20px 20px;
+  border: 1px dotted black;
+}
+th {
+  text-align: left;
+}
+h1 {
+ -webkit-text-stroke: 1px black;
+  text-align: center;
+  color: white;
+  font-family: Georgia, serif;
+  text-shadow: 2px 4px 5px gray;
+}
+
+form{
+  margin-top: 20px;
+  border: 3px dotted black;
+  background-color: darkcyan;
+  border-radius: 10px;
+}
+.espacio{
+  height: 20px;
+}
+label{
+  margin-top: 15px;
+  color:white;
+  font-weight: bolder;
+}
+
+.boton{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 5px 10px 5px 10px;
+  border-radius: 10px;
+  background: steelblue;
+  color: white;
+}
+
+.boton:hover{
+  color: powderblue;
+  box-shadow: 0 0 2px 2px white;
+}
+
+.error{
+  text-shadow: 5px 2px 3px silver;
+  color: yellow;
+}

@@ -1,0 +1,28 @@
+<center>
+<!--  -->
+<form method="post" action="/begin_session">
+<h1>Iniciar Sesión</h1>
+
+  <% if @error%>
+    <h3 class="error"><%= @error %></h3>
+  <% end %>
+
+  <table>
+  <tr>
+    <td>  <label for="user">Correo:</label>  </td>
+    <td>  <input id="user" type="text" name="user_crypt">  </td>
+  </tr>
+  <tr><td class="espacio"></td></tr>
+  <tr>
+    <td>  <label for="pass">Contraseña:</label>  </td>
+    <td>  <input id="pass" type="password" name="password_crypt">  </td>
+  </tr>
+  </table>
+
+  <input class="boton" type="submit" value="Iniciar Sesión">
+
+</form>
+</center>
+<br>
+<hr>
+<a href="/new_user"><button class="boton">Registrarte</button></a>
